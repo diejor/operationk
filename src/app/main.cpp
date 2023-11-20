@@ -77,10 +77,9 @@ void parse_animals(
         vector<Cat*>& cats)
 {
     output::inform("Getting animals from file ...");
-    // first csv is just formatting info
-    tokens.erase(tokens.begin());
 
-    for (string csv_line : tokens) {
+    for (int index = 1; index < tokens.size(); index++) {
+        string csv_line = tokens[index];
         vector<string> animal_data = Animal::get_atributes(csv_line);
         string animal_type = animal_data[0];
 
@@ -182,6 +181,6 @@ int main() {
     report4(out_file, cats);
 
     // delete Animals
-    delete_animals(animals, dogs, cats);
+    // delete_animals(animals, dogs, cats);
     return 0;
 }

@@ -39,7 +39,7 @@ int Cat::get_cat_id() const {
 void Cat::introduce(ostream& out) const {
     out << speak() << endl;
     out << "  Miau, Miau! " << get_breed() << " " << get_color() << " " << get_type() << endl;
-    out << "  My name is " << get_name() << " and I am a " << get_sex() << " and " << get_age() << " years old" << endl;
+    out << "  My name is " << get_name() << ", I am a " << get_sex() << " and " << get_age() << " years old" << endl;
     out << "  I weight " << get_weight() << ". I think my health is " << get_health() << endl;
     out << " My cat id is " << get_cat_id() << endl;
     out << endl;

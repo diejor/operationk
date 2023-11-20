@@ -165,7 +165,9 @@ namespace parser {
         // an empty file is read, it returns an empty string which has to be
         // removed.
         if (token_block.size() > 0) {
-            token_block.pop_back();
+            if (token_block[token_block.size() - 1].empty()) {
+                token_block.pop_back();
+            }
         }
 
         output::inform("input file read.");

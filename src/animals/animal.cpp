@@ -79,24 +79,36 @@ int Animal::get_animal_id() const {
 void Animal::introduce(ostream& out) const {
     out << sound << endl;
     out << "  I am a " << breed << " " << color << " " << type << endl;
-    out << "  My name is " << name << " and I am a " << sex << " and " << age << " years old" << endl;
+    out << "  My name is " << name << ", I am a " << sex << " and " << age << " years old" << endl;
     out << "  I weight " << weight <<  "lbs. I think my health is " << health << endl;
     out << " My animal id is " << animal_id << endl;
     out << endl;
 }
 
 /*
- * Static method to get the atributes from a CSV string. The format of the CSV string is:
- * type,name,,sex,age,weight,breed,color,health,sound
+ *  Values surrounded by quotes are treated as a single value. Note that
+ *  commas could be in within the quotes.
  */
 vector<string> Animal::get_atributes(string csv) {
-    stringstream ss(csv);
-    string item;
     vector<string> atributes;
 
-    while (getline(ss, item, ',')) {
-        atributes.push_back(item);
+    string token = "";
+    for (int index = 0; index < csv.length(); index++) {
+        char character = csv[index];
+        if (character == '"') {
+            index++;
+            while (csv[index] != '"') {
+                token += csv[index];
+                index++;
+            }
+        } else if (character == ',') {
+            atributes.push_back(token);
+            token = "";
+        } else {
+            token += character;
+        }
     }
+    atributes.push_back(token);
 
     return atributes;
 }

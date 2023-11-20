@@ -36,7 +36,7 @@ int Dog::get_dog_id() const {
 void Dog::introduce(ostream& out) const {
     out << speak() << endl;
     out << "Wauf, Wauf! I am a " << get_breed() << " " << get_color() << " " << get_type() << endl;
-    out << "  My name is " << get_name() << " and I am a " << get_sex() << " and " << get_age() << " years old" << endl;
+    out << "  My name is " << get_name() << ", I am a " << get_sex() << " and " << get_age() << " years old" << endl;
     out << "  I weight " << get_weight() << ". I think my health is " << get_health() << " Wauf, Wauf!" << endl;
     out << " My dog id is " << get_dog_id() << endl;
     out << endl;
