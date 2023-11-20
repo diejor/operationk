@@ -48,9 +48,20 @@ namespace global {
         const bool TRIM_WHITESPACE = false;
         const bool USER_INPUT = false;
 
-        // grid
-        const bool MIDDLE_POINT = false;
-        const bool COLLISIONS = false;
+        // parser
+        const bool EMPTY_FILE = false;  
+        const bool IGNORING_COMMENT = false;
+        const bool TOKEN = false;
+
+        // animals
+        const bool ANIMAL_CREATED = false;
+        const bool ANIMAL_DELETED = false;
+        const bool DOG_CREATED = false;
+        const bool DOG_DELETED = false;
+        const bool CAT_CREATED = false;
+        const bool CAT_DELETED = false;
+
+        const bool PRINT_VECTOR = false;
     }  // namespace debug_flags
     // =----------------- END OF CONSTANTS -----------------=
     // ------------------------------------------------------

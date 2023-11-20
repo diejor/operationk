@@ -65,7 +65,7 @@ namespace input {
      * ensuring that the user is working with the correct type of files.
      */
     namespace extensions {
-        const string EXTENSIONS[] = {".txt", ".ppm"};
+        const string EXTENSIONS[] = {".txt", ".ppm", ".csv"};
 
         // Checks if a given file has a specific extension.
         inline bool has(const string& file_name, const string& extension) {

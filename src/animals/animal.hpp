@@ -19,12 +19,21 @@
 #define ANIMAL_HPP
 
 #include <string>
+#include <vector>
 
 using namespace std;
 
+const vector<string> default_atributes = 
+    {"alien", "Paquito", "non-binary", "5", "8", "unknown", "green-explosion", 
+        "biohazard", "We come in peace"};
+
+class Cat;
+
 class Animal {
-   private:
-    int type;
+   protected:
+    string type;
+    string name;
+    string sex;
     int age;
     int weight;
     string breed;
@@ -32,22 +41,39 @@ class Animal {
     string health;
     string sound;
 
+    // identification
     static int animal_count;
+    int animal_id;
 
    public:
     Animal();
-    Animal(int, int, int, string, string, string, string);
+    Animal(vector<string> const& atributes);
     ~Animal();
 
-    int getType();
-    int getAge();
-    int getWeight();
-    string getBreed();
-    string getColor();
-    string getHealth();
-    string getSound();
+    string get_type() const;
+    string get_name() const;
+    string get_sex() const;
+    int get_age() const;
+    int get_weight() const;
+    string get_breed() const;
+    string get_color() const;
+    string get_health() const;
+    string speak() const;
 
-    static int getAnimalCount();
+    static int get_animal_count();
+    int get_animal_id() const;
+
+    void introduce(ostream& out) const;
+
+    static vector<string> get_atributes(string csv);
+
+    string to_csv() const;
 };
+
+namespace debug {
+    void animal_created(Animal const* animal);
+    void animal_destroyed(Animal const* animal);
+}
+
 
 #endif

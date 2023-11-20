@@ -168,6 +168,9 @@ namespace parser {
             token_block.pop_back();
         }
 
+        output::inform("input file read.");
+        output::separate();
+
         return token_block;
     }
 
@@ -181,13 +184,13 @@ namespace parser {
         }
 
         inline void ignoring_line(string line) {
-            if (global::debug_flags::IGNORING_COMMENT_LINE) {
+            if (global::debug_flags::IGNORING_COMMENT) {
                 output::debug("ignoring line: ", line);
             }
         }
 
         inline void token_line(string token_line) {
-            if (global::debug_flags::TOKEN_LINE) {
+            if (global::debug_flags::TOKEN) {
                 output::debug("token line: ", token_line);
             }
         }
